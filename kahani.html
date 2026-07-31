@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teri Kahani Meri Jubani</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#090909,#1d1d1d,#000);
+overflow:hidden;
+}
+
+.card{
+width:90%;
+max-width:700px;
+padding:60px 30px;
+border-radius:25px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+text-align:center;
+box-shadow:0 0 40px rgba(255,255,255,.08);
+}
+
+h1{
+font-size:50px;
+color:white;
+letter-spacing:2px;
+margin-bottom:50px;
+text-shadow:0 0 15px #ffffff66;
+}
+
+button{
+padding:18px 70px;
+font-size:24px;
+border:none;
+border-radius:60px;
+cursor:pointer;
+background:#ff2e63;
+color:white;
+font-weight:bold;
+transition:.3s;
+box-shadow:0 0 25px #ff2e63;
+}
+
+button:hover{
+transform:scale(1.08);
+box-shadow:0 0 45px #ff2e63;
+}
+
+#status{
+margin-top:35px;
+font-size:20px;
+color:#ffffff;
+opacity:.85;
+}
+
+audio{
+display:none;
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:35px;
+}
+
+button{
+font-size:20px;
+padding:15px 50px;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>🎵<br>Teri Kahani<br>Meri Jubani</h1>
+
+<button onclick="playSong()">
+▶ START
+</button>
+
+<div id="status">
+Click Start
+</div>
+
+<audio id="music">
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+
+const song=document.getElementById("music");
+
+function playSong(){
+
+song.play();
+
+document.getElementById("status").innerHTML="🎧 Playing...";
+
+}
+
+song.onended=function(){
+
+document.getElementById("status").innerHTML="✅ Song Finished";
+
+}
+
+</script>
+
+</body>
+</html>
