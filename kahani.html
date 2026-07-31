@@ -1,395 +1,160 @@
 <!DOCTYPE html>
 <html lang="hi">
-<head><!DOCTYPE html>
-<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>तेरी कहानी, मेरी जुबानी</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
 body{
-
-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-background:linear-gradient(135deg,#050505,#111,#1d1d1d);
-
-overflow:hidden;
-
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#050505,#111,#1d1d1d);
+  overflow:hidden;
 }
 
 body::before{
-
-content:"";
-
-position:absolute;
-
-width:600px;
-
-height:600px;
-
-background:#ff004c;
-
-filter:blur(180px);
-
-opacity:.18;
-
-animation:move 8s infinite alternate;
-
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:#ff004c;
+  filter:blur(180px);
+  opacity:.18;
+  animation:move 8s infinite alternate;
 }
 
 @keyframes move{
-
-0%{transform:translate(-150px,-120px);}
-
-100%{transform:translate(180px,120px);}
-
+  0%{transform:translate(-150px,-120px);}
+  100%{transform:translate(180px,120px);}
 }
 
 .card{
-
-position:relative;
-
-z-index:5;
-
-width:90%;
-
-max-width:700px;
-
-padding:60px 40px;
-
-text-align:center;
-
-border-radius:25px;
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(18px);
-
-box-shadow:0 0 40px rgba(255,255,255,.08);
-
+  position:relative;
+  z-index:5;
+  width:90%;
+  max-width:700px;
+  padding:60px 40px;
+  text-align:center;
+  border-radius:25px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);
+  box-shadow:0 0 40px rgba(255,255,255,.08);
 }
 
 h1{
-
-color:white;
-
-font-size:48px;
-
-margin-bottom:12px;
-
+  color:white;
+  font-size:48px;
+  margin-bottom:12px;
 }
 
 h2{
-
-color:#ff4d7a;
-
-font-size:22px;
-
-font-weight:500;
-
-margin-bottom:35px;
-
+  color:#ff4d7a;
+  font-size:22px;
+  font-weight:500;
+  margin-bottom:35px;
 }
 
 p{
-
-color:#ddd;
-
-font-size:18px;
-
-line-height:30px;
-
-margin-bottom:35px;
-
+  color:#ddd;
+  font-size:18px;
+  line-height:30px;
+  margin-bottom:35px;
 }
 
 button{
-
-padding:18px 70px;
-
-font-size:22px;
-
-border:none;
-
-border-radius:50px;
-
-cursor:pointer;
-
-font-weight:bold;
-
-background:#ff004c;
-
-color:white;
-
-transition:.3s;
-
-box-shadow:0 0 25px #ff004c;
-
+  padding:18px 70px;
+  font-size:22px;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  font-weight:bold;
+  background:#ff004c;
+  color:white;
+  transition:.3s;
+  box-shadow:0 0 25px #ff004c;
 }
 
 button:hover{
-
-transform:scale(1.08);
-
-box-shadow:0 0 50px #ff004c;
-
+  transform:scale(1.08);
+  box-shadow:0 0 50px #ff004c;
 }
 
 #status{
-
-margin-top:30px;
-
-color:#fff;
-
-font-size:20px;
-
+  margin-top:30px;
+  color:#fff;
+  font-size:20px;
 }
 
 .footer{
-
-margin-top:40px;
-
-font-size:16px;
-
-color:#aaa;
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="card">
-
-<h1>🎤 तेरी कहानी, मेरी जुबानी</h1>
-
-<h2>Original Rap by PAWNESH NARAYAN</h2>
-
-<p>
-
-"हर सवाल एक कहानी है,<br>
-
-हर कहानी एक सफ़र है..."
-
-</p>
-
-<button id="btn">
-
-▶ START
-
-</button>
-
-<div id="status">
-
-Click START to Play
-
-</div>
-
-<div class="footer">
-
-© 2026 PAWNESH NARAYAN
-
-</div>
-
-<audio id="song">
-
-<source src="sawalon-ka-musafir.mp3" type="audio/mpeg">
-
-</audio>
-
-</div>
-
-<script>
-
-const song=document.getElementById("song");
-
-const btn=document.getElementById("btn");
-
-const status=document.getElementById("status");
-
-btn.onclick=()=>{
-
-if(song.paused){
-
-song.play().then(()=>{
-
-btn.innerHTML="⏸ PAUSE";
-
-status.innerHTML="🎧 अब कहानी शुरू हो चुकी है...";
-
-}).catch(()=>{
-
-status.innerHTML="❌ MP3 File नहीं मिली।";
-
-});
-
-}else{
-
-song.pause();
-
-btn.innerHTML="▶ PLAY";
-
-status.innerHTML="⏸ Song Paused";
-
-}
-
-}
-
-song.onended=()=>{
-
-btn.innerHTML="▶ PLAY AGAIN";
-
-status.innerHTML="❤️ सुनने के लिए धन्यवाद";
-
-}
-
-</script>
-
-</body>
-</html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Teri Kahani Meri Jubani</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#090909,#1d1d1d,#000);
-overflow:hidden;
-}
-
-.card{
-width:90%;
-max-width:700px;
-padding:60px 30px;
-border-radius:25px;
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(15px);
-text-align:center;
-box-shadow:0 0 40px rgba(255,255,255,.08);
-}
-
-h1{
-font-size:50px;
-color:white;
-letter-spacing:2px;
-margin-bottom:50px;
-text-shadow:0 0 15px #ffffff66;
-}
-
-button{
-padding:18px 70px;
-font-size:24px;
-border:none;
-border-radius:60px;
-cursor:pointer;
-background:#ff2e63;
-color:white;
-font-weight:bold;
-transition:.3s;
-box-shadow:0 0 25px #ff2e63;
-}
-
-button:hover{
-transform:scale(1.08);
-box-shadow:0 0 45px #ff2e63;
-}
-
-#status{
-margin-top:35px;
-font-size:20px;
-color:#ffffff;
-opacity:.85;
-}
-
-audio{
-display:none;
+  margin-top:40px;
+  font-size:16px;
+  color:#aaa;
 }
 
 @media(max-width:600px){
-
-h1{
-font-size:35px;
-}
-
-button{
-font-size:20px;
-padding:15px 50px;
-}
-
+  h1{ font-size:32px; }
+  button{ font-size:18px; padding:15px 40px; }
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="card">
+  <h1>🎤 तेरी कहानी, मेरी जुबानी</h1>
+  <h2>Original Rap by PAWNESH NARAYAN</h2>
+  <p>
+    "हर सवाल एक कहानी है,<br>
+    हर कहानी एक सफ़र है..."
+  </p>
 
-<h1>🎵<br>Teri Kahani<br>Meri Jubani</h1>
+  <button id="btn">▶ START</button>
+  
+  <div id="status">Click START to Play</div>
+  <div class="footer">© 2026 PAWNESH NARAYAN</div>
 
-<button onclick="playSong()">
-▶ START
-</button>
-
-<div id="status">
-Click Start
-</div>
-
-<audio id="music">
-<source src="song.mp3" type="audio/mpeg">
-</audio>
-
+  <!-- गाना प्ले करने के लिए सही फाइल नेम -->
+  <audio id="song">
+    <source src="सवालों_का_मुसाफ़िर.mp3" type="audio/mpeg">
+  </audio>
 </div>
 
 <script>
+const song = document.getElementById("song");
+const btn = document.getElementById("btn");
+const status = document.getElementById("status");
 
-const song=document.getElementById("music");
-
-function playSong(){
-
-song.play();
-
-document.getElementById("status").innerHTML="🎧 Playing...";
-
+btn.onclick = () => {
+  if (song.paused) {
+    song.play().then(() => {
+      btn.innerHTML = "⏸ PAUSE";
+      status.innerHTML = "🎧 अब कहानी शुरू हो चुकी है...";
+    }).catch((err) => {
+      console.error(err);
+      status.innerHTML = "❌ MP3 File नहीं मिली। कृपया फाइल का नाम जांचें।";
+    });
+  } else {
+    song.pause();
+    btn.innerHTML = "▶ PLAY";
+    status.innerHTML = "⏸ Song Paused";
+  }
 }
 
-song.onended=function(){
-
-document.getElementById("status").innerHTML="✅ Song Finished";
-
+song.onended = () => {
+  btn.innerHTML = "▶ PLAY AGAIN";
+  status.innerHTML = "❤️ सुनने के लिए धन्यवाद";
 }
-
 </script>
 
 </body>
