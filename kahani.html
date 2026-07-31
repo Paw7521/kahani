@@ -1,6 +1,272 @@
 <!DOCTYPE html>
 <html lang="hi">
+<head><!DOCTYPE html>
+<html lang="hi">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>तेरी कहानी, मेरी जुबानी</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(135deg,#050505,#111,#1d1d1d);
+
+overflow:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:600px;
+
+height:600px;
+
+background:#ff004c;
+
+filter:blur(180px);
+
+opacity:.18;
+
+animation:move 8s infinite alternate;
+
+}
+
+@keyframes move{
+
+0%{transform:translate(-150px,-120px);}
+
+100%{transform:translate(180px,120px);}
+
+}
+
+.card{
+
+position:relative;
+
+z-index:5;
+
+width:90%;
+
+max-width:700px;
+
+padding:60px 40px;
+
+text-align:center;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+box-shadow:0 0 40px rgba(255,255,255,.08);
+
+}
+
+h1{
+
+color:white;
+
+font-size:48px;
+
+margin-bottom:12px;
+
+}
+
+h2{
+
+color:#ff4d7a;
+
+font-size:22px;
+
+font-weight:500;
+
+margin-bottom:35px;
+
+}
+
+p{
+
+color:#ddd;
+
+font-size:18px;
+
+line-height:30px;
+
+margin-bottom:35px;
+
+}
+
+button{
+
+padding:18px 70px;
+
+font-size:22px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+background:#ff004c;
+
+color:white;
+
+transition:.3s;
+
+box-shadow:0 0 25px #ff004c;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 50px #ff004c;
+
+}
+
+#status{
+
+margin-top:30px;
+
+color:#fff;
+
+font-size:20px;
+
+}
+
+.footer{
+
+margin-top:40px;
+
+font-size:16px;
+
+color:#aaa;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎤 तेरी कहानी, मेरी जुबानी</h1>
+
+<h2>Original Rap by PAWNESH NARAYAN</h2>
+
+<p>
+
+"हर सवाल एक कहानी है,<br>
+
+हर कहानी एक सफ़र है..."
+
+</p>
+
+<button id="btn">
+
+▶ START
+
+</button>
+
+<div id="status">
+
+Click START to Play
+
+</div>
+
+<div class="footer">
+
+© 2026 PAWNESH NARAYAN
+
+</div>
+
+<audio id="song">
+
+<source src="sawalon-ka-musafir.mp3" type="audio/mpeg">
+
+</audio>
+
+</div>
+
+<script>
+
+const song=document.getElementById("song");
+
+const btn=document.getElementById("btn");
+
+const status=document.getElementById("status");
+
+btn.onclick=()=>{
+
+if(song.paused){
+
+song.play().then(()=>{
+
+btn.innerHTML="⏸ PAUSE";
+
+status.innerHTML="🎧 अब कहानी शुरू हो चुकी है...";
+
+}).catch(()=>{
+
+status.innerHTML="❌ MP3 File नहीं मिली।";
+
+});
+
+}else{
+
+song.pause();
+
+btn.innerHTML="▶ PLAY";
+
+status.innerHTML="⏸ Song Paused";
+
+}
+
+}
+
+song.onended=()=>{
+
+btn.innerHTML="▶ PLAY AGAIN";
+
+status.innerHTML="❤️ सुनने के लिए धन्यवाद";
+
+}
+
+</script>
+
+</body>
+</html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
